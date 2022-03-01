@@ -20,25 +20,33 @@
         <h3>Track your reading!</h3>
         <button id="addBook">Add Book</button>
     </div>
+    <div class="spacer"></div>
     <div id="bookModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span><br>
             <div class="form">
                 <form id="bookForm">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title">
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author">
-                    <label for="pages">Number of Pages:</label>
-                    <input type="number" id="pages" name="pages">
+                    <div class="formRow">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" maxlength="50">
+                    </div>
+                    <div class="formRow">
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" maxlength="50">
+                    </div>
+                    <div class="formRow">
+                        <label for="pages">Number of Pages:</label>
+                        <input type="number" id="pages" name="pages" min="1" max="10000" onkeyup=enforceMinMax(this)>
+                    </div>
                     <fieldset>
-                        <legend>Read status:</legend>
-                        <input type="radio" id="false" name="read" value="false">
-                        <label for="false">Not read yet</label>
-                        <input type="radio" id="true" name="read" value="true">
-                        <label for="true">Read</label>
+                        <div class="radioContainer">
+                            <legend>Have you read this book yet?</legend>
+                            <input type="radio" id="false" name="read" value="false">
+                            <label for="false">Not read</label>
+                            <input type="radio" id="true" name="read" value="true">
+                            <label for="true">Read</label>
+                        </div>
                     </fieldset>
-                    <button type="button" id="submit" onclick="readForm()">Submit</button>
+                    <div class="formRow"><button type="button" id="submit" onclick="readForm()">Submit</button></div>
                 </form>
             </div>
         </div>
